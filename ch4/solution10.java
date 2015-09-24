@@ -13,10 +13,10 @@ public class solution10 {
         if (T1 == null) {
             return false;
         } else if (T1.val == T2.val && checkSubtree(T1, T2)) {
-            // if there's a match, then check subtree to see if they are same
+           
             return true;
         }
-        // search down T1 and match T2
+        
         return subTree(T1.left, T2) || subTree(T1.right, T2);
     }
 

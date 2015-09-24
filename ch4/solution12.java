@@ -2,10 +2,6 @@ package ch4;
 
 import java.util.HashMap;
 
-/*You are given a binary tree in which each node contains an integer value 
- * (which might be positive or negative). Design an algorithm to count the number of paths that
- * sum to a given value. The path does not need to start or end at the root or a leaf, 
- * but it must go downwards (traveling only from parent nodes to child nodes).*/
 public class solution12 {
 
 	static class TreeNode {
@@ -38,7 +34,8 @@ public class solution12 {
 
 		int sum = runningSum - targetSum;
 		int totalPaths = pathCount.containsKey(sum) ? pathCount.get(sum) : 0;
-/*------Recursive-------*/
+
+
 		totalPaths += countPathsWithSum(node.left, targetSum, runningSum,
 				pathCount);
 		totalPaths += countPathsWithSum(node.right, targetSum, runningSum,
@@ -50,7 +47,8 @@ public class solution12 {
 
 	public static void incrementHashTable(HashMap<Integer, Integer> hashTable,
 			int key, int t) {
-//Put the data needed into the HashMap<key, value>, key is the runningsum, value is the count
+
+		
 		if (!hashTable.containsKey(key)) {
 			hashTable.put(key, 1);
 		}else{

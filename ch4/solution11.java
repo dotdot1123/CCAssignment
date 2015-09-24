@@ -2,12 +2,6 @@ package ch4;
 
 import java.util.Random;
 
-
-/* You are implementing a binary tree class from scratch, which, in addition to insert, 
- * find, and delete, has a method getRandomNode() which returns a random node from the tree.
- * All nodes should be equally likely to be chosen. Design and implement an algorithm for 
- * getRandomNode, and explain how you would implement the rest of the methods. */
-
 public class solution11 {
 	public static class Tree{
 		TreeNode root=null;
@@ -22,8 +16,8 @@ public class solution11 {
 			if(root==null){
 				return null;
 			}
-			Random random=new Random(); //Random() just once, which is optimal.
-			int i=random.nextInt(size()); // Fetch the random integer from 0 to size();
+			Random random=new Random(); 
+			int i=random.nextInt(size()); 
 			return root.getIthNode(i);
 		}
 		
@@ -45,9 +39,9 @@ public class solution11 {
 			left=null;
 			right=null;
 		}
-		public TreeNode getIthNode(int i){  //Recursive
-			//Use the size to simulate the pre-order traversal.
-			int leftSize=left==null? 0: left.size(); 
+		public TreeNode getIthNode(int i){  
+			
+			int leftSize=left==null? 0: left.size();    //pre-order traversal.
 			if(i<leftSize){
 				return left.getIthNode(i);
 			}else if(i==leftSize){
@@ -86,21 +80,5 @@ public class solution11 {
 			return null;
 		}
 	}	
-	 public static void main(String[] args) {
-	    Tree t=new Tree();
-	    t.insertInOrder(1);
-	    t.insertInOrder(2);
-	    t.insertInOrder(3);
-	    t.insertInOrder(4);
-	    t.insertInOrder(5);
-	    t.insertInOrder(6);
-	    
-	    System.out.print(t.getRandomNode().data);
-	    System.out.print(t.getRandomNode().data);
-	    System.out.print(t.getRandomNode().data);
-	    System.out.print(t.getRandomNode().data);
-	    System.out.print(t.getRandomNode().data);
-	    System.out.print(t.getRandomNode().data);
-	    System.out.print(t.getRandomNode().data);
-}
+	 
 }

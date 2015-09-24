@@ -4,31 +4,30 @@ import java.util.*;
 
 
 public class solution06 {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		solution06 s = new solution06();
-		int arr[] = {1, 2, 3, 4, 5, 6, 7};
-		TreeNode root = s.buildTree(arr); //build a three layer binary tree
+	
+	private class TreeNode{
+		public int val;
+		public TreeNode left;
+		public TreeNode right;
+		public TreeNode parent;
 		
-		TreeNode node = s.successor(root.left);
-		System.out.println(node.val); // it should be 5
+		public TreeNode(int val) {
+			this.val = val;
+		}
+		
 	}
 	
-	/*suppose we traverse the tree in in order, then we should return the leftmost node of right subtree.
-	 * if there is no such a node, we return the parent node when current node is left node of parent node. 
-	 */
 	public TreeNode successor(TreeNode node) {
 		if(node == null) return null;
 		if(node.right != null) {
-			// get leftmost node of right subtree
+			
 			TreeNode p = node.right;
 			while(p.left != null) {
 				p = p.left;
 			}
 			return p;
 		} else {
-			//find the parent node when current node is left node of parent node
+	
 			while(node.parent.right == node && node.parent != null) {
 				node = node.parent;
 			}
@@ -68,14 +67,14 @@ public class solution06 {
 		return root;
 	}
 	
-	private class TreeNode{
-		public int val;
-		public TreeNode left;
-		public TreeNode right;
-		public TreeNode parent;
+	
+	public static void main(String[] args) {
 		
-		public TreeNode(int val) {
-			this.val = val;
-		}
+		solution06 s = new solution06();
+		int arr[] = {0, 1, 2, 3, 4, 5, 6};
+		TreeNode root = s.buildTree(arr); 
+		
+		TreeNode node = s.successor(root.left);
+		System.out.println(node.val);   
 	}
 }
