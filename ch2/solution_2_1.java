@@ -24,7 +24,6 @@ public class solution_2_1 {
 }
 
 Original question analysis:
-
 If there is no limit of buffer, so we can simply iterate throug the linked list,and use the HashSet to mark determine and remove the 
 duplicate elements.
 
