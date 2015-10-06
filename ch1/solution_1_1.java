@@ -27,3 +27,18 @@ public class solution_1_1 {
 	}
 	
 }
+
+follow up problem:
+
+If we cannot use additional data structures, we can reduce the space by a factor of eight by using a bit vertor. The code is below:
+ boolean DetermineUnique1(String str){
+ 	int a = 0;     // a is a checker 
+ 	for(int i = 0; i < str.length(); i++){
+ 		int val = str.charAt(i) - 'a';
+ 		if((a & (1 << val)) > 0){
+ 			return false;
+ 		}
+ 		a |= (1 << val);
+ 	}
+ 	return true;
+ }
