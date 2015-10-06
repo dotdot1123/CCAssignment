@@ -89,7 +89,7 @@ public class solution03 {
 		}
 		
 		public boolean push(int v){
-			if(size >= capacity) return false;
+			if(size >= capacity) return false;  
 			size++;
 			Node n = new Node(v);
 			if(size == 1) bottom = n;
@@ -118,3 +118,9 @@ public class solution03 {
 			}
 		}
 }
+
+follow up problem analysis:
+Implement a function popAt(int index) which performs a pop operation on a specific substack.
+This problem is a little hard to implement, but we can imagine a "rollover" system, if we pop an element from stack 1, we need to 
+remove the bottom of stack 2 and push it onto stack 1, we then need to rollover form stack 3 to stack 2, stack 4 to stack 3, etc.
+In this situation, we assume that is ok with some stacks not being at full capacity.
