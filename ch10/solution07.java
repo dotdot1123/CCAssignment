@@ -31,3 +31,18 @@ public class solution07 {
 	}
 		
 }
+
+follow up question analysis:
+Because we only have 10 MB memory, so 
+10 MB memory = 10 * 10^6 * 8 bits = 80 million bits
+
+Solution: For all possible 16-bit prefixes, there are 2^16 number of integers = 65536, we need 2^16 * 4 * 8 = 2 million bits.
+We need build 65536 buckets. For each bucket, we need 4 bytes holding all possibilities because the worst case is all the 4 
+billion integers belong to the same bucket.
+The procedures are below:
+Step 1: Build the counter of each bucket through the first pass through the file.
+Step 2: Scan the buckets, find the first one who has less than 65536 hit.
+Step 3: Build new buckets whose high 16-bit prefixes are we found in step2
+through second pass of the file
+Step 4: Scan the buckets built in step3, find the first bucket which doesnt
+have a hit.
